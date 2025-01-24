@@ -22,14 +22,13 @@ async function getData(userId: string) {
 }
 export default async function SitesRoute() {
     const {getUser} = getKindeServerSession();
-    const user = getUser();
+    const user = await getUser();
 
     if(!user){
         return redirect('/api/auth/login');
     }
 
-
-    const data = await getData(await user.id)
+    const data = await getData(user.id)
     return (
         <>
         <div className="flex w-full justify-end">
