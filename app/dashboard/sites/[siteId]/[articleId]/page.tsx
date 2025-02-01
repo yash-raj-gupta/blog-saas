@@ -40,7 +40,7 @@ export default async function EditRoute({params}: {params: {articleId: string, s
                 </Button>
                 <h1 className="text-2xl font-semibold">Edit Article</h1>
             </div>
-            <EditArticleForm data={data}/>
+            <EditArticleForm data={data} siteId={params.siteId}/>
         </div>
     )
 }

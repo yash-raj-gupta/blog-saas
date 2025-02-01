@@ -27,10 +27,11 @@ interface iAppsProps {
         articleContent: any;
         id: string;
         image: string;
-    }
+    },
+    siteId: string
 }
     
-export function EditArticleForm({data}: iAppsProps) {
+export function EditArticleForm({data, siteId}: iAppsProps) {
     const [imageUrl, setImageUrl] = useState<undefined | string>(data.image);
     const [value, setValue] = useState<JSONContent | undefined>(data.articleContent);
     const [slug, setSlugValue] = useState<undefined | string>(data.slug)
@@ -73,6 +74,7 @@ export function EditArticleForm({data}: iAppsProps) {
         <CardContent>
             <form className="flex flex-col gap-6" id={form.id} onSubmit={form.onSubmit} action={action}>
                 <input type="hidden" name="articleId" value={data.id} />
+                <input type="hidden" name="siteId" value={siteId} />
                 <div className="grid gap-2">
                     <Label>Title</Label>
                     <Input 
