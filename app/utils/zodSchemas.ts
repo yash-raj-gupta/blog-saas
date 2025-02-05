@@ -19,6 +19,8 @@ export function SiteCreationSchema(options?: {
   isSubdirectoryUnique: () => Promise<boolean>;
 }) {
   return z.object({
+    name: z.string().min(1).max(35),
+    description: z.string().min(1).max(150),
     subdirectory: z
       .string()
       .min(1)
@@ -46,7 +48,5 @@ export function SiteCreationSchema(options?: {
             })
         })
       ),
-      name: z.string().min(1).max(35),
-  description: z.string().min(1).max(150),
   });
 }
